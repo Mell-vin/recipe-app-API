@@ -1,0 +1,15 @@
+# Exclude any files that the image doesnt need to worry about
+.git
+.gitignore
+
+# Docker
+.docker
+
+# Python
+app/__pychache__/
+app/*/__pychache__/
+app/*/*/__pychache__/
+app/*/*/*/__pychache__/
+.env/
+.venv/
+venv/
