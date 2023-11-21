@@ -1,0 +1,5 @@
+Mentor meeting
+- come up with bug fixing/debugging workshop
+- workshop on how to host a workshop
+	- slide preparation, topics, discussion
+	- 

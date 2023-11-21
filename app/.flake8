@@ -6,3 +6,4 @@ exclude =
     manage.py,
     settings.py,
     calc.py,
+    staticfiles,

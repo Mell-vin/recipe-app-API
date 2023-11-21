@@ -2,25 +2,28 @@ version: "3.9"
 
 
 services:
-  app:
+  gumai_db:
     build:
       context: .
       args:
         - DEV=true
     ports:
       - "8000:8000"
-      # a way of mapping dirs from our system into the docker container. This will allow it to auto sync in real time!!!
+      # a way of mapping dirs from our system into the docker container This will allow it to auto sync in real time!!!
     volumes:
-      - ./app:/app
+      - ./GumaiDB:/gumai_db
     command: >
       sh -c "python manage.py wait_for_db &&
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     environment:
       - DB_HOST=db
-      - DB_NAME=devdb 
-      - DB_USER=devuser
-      - DB_PASS=changeme
+      - POSTGRES_DB=devdb 
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+      - EMAIL_USER=gumedelwazi44@gmail.com
+      - EMAIL_PASS=tocupajrnnbvocng
+      - DEBUG=1
     depends_on:
       - db
   
@@ -32,7 +35,6 @@ services:
       - POSTGRES_DB=devdb
       - POSTGRES_USER=devuser
       - POSTGRES_PASSWORD=changeme
-
 
 volumes:
   dev-db-data:

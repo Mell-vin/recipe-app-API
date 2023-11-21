@@ -32,6 +32,9 @@ class UserManager(BaseUserManager):
         """
         Create, save and return a new super user
         """
+        if not email:
+            raise ValueError("Super User needs to have an email")
+        
         user = self.create_user(email, password)
         user.is_staff = True
         user.is_superuser = True
